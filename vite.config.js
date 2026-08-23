@@ -5,8 +5,8 @@ import { viteSingleFile } from 'vite-plugin-singlefile'
 import { localApiPlugin } from './vite-plugin-local-api.js'
 
 export default defineConfig({
-  // GitHub Pages serves this project under /sugarsense2/.
-  base: '/sugarsense2/',
+  // GitHub Pages uses /sugarsense2/; Vercel/local builds use /.
+  base: process.env.GITHUB_ACTIONS ? '/sugarsense2/' : '/',
   plugins: [react(), basicSsl(), localApiPlugin(), viteSingleFile()],
   server: {
     host: true,
