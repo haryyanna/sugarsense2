@@ -1,0 +1,3 @@
+[submodule "moodify"]
+	path = moodify
+	url = https://github.com/haryyanna/moodify.git
