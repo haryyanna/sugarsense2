@@ -1,0 +1,118 @@
+.breathing-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
+    color: #0f172a;
+}
+
+.breathing-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    padding-bottom: 80px;
+}
+
+.instructions {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 300px;
+}
+
+.instructions p {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.circle-container {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+}
+
+.breathing-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(56, 189, 248, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 4s linear;
+}
+
+.breathing-circle.active {
+    box-shadow: 0 0 40px rgba(56, 189, 248, 0.4);
+}
+
+.inner-circle {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);
+    border-radius: 50%;
+    box-shadow: 0 10px 25px rgba(14, 165, 233, 0.3);
+}
+
+.center-text {
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.center-text h3 {
+    font-size: 20px;
+    margin-bottom: 4px;
+    font-weight: 700;
+}
+
+.timer-countdown {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.breathing-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 200px;
+    height: 54px;
+    font-size: 16px;
+    border-radius: 100px;
+}
+
+.active-btn {
+    background: #ef4444;
+    box-shadow: 0 8px 16px rgba(239, 68, 68, 0.2);
+}
+
+/* Animations based on phase */
+.scale-up {
+    transform: scale(1.5);
+    transition: transform 4s ease-out; /* Inhale duration */
+}
+
+.scale-hold {
+    transform: scale(1.5);
+    transition: transform 4s linear; /* Hold duration */
+}
+
+.scale-down {
+    transform: scale(1);
+    transition: transform 6s ease-in-out; /* Exhale duration */
+}
+
+.scale-normal {
+    transform: scale(1);
+}

@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Default Color Palette (Forest/Mint) */
+  --primary: #2a9d8f;
+  --primary-dark: #21867a;
+  --primary-light: #4bc0b1;
+  --primary-surface: #e6f7f5;
+  --bg-gradient-start: #f0f9f6;
+  --bg-gradient-end: #e0f2f1;
+  
+  --text-main: #1d3557;
+  --text-muted: #6c757d;
+}
+
+[data-theme="ocean"] {
+  --primary: #0284c7;
+  --primary-dark: #0369a1;
+  --primary-light: #38bdf8;
+  --primary-surface: #f0f9ff;
+  --bg-gradient-start: #f8fafc;
+  --bg-gradient-end: #e0f2fe;
+}
+
+[data-theme="sunset"] {
+  --primary: #f97316;
+  --primary-dark: #c2410c;
+  --primary-light: #fb923c;
+  --primary-surface: #fff7ed;
+  --bg-gradient-start: #fffbeb;
+  --bg-gradient-end: #ffedd5;
+}
+
+[data-theme="lavender"] {
+  --primary: #8b5cf6;
+  --primary-dark: #6d28d9;
+  --primary-light: #a78bfa;
+  --primary-surface: #f5f3ff;
+  --bg-gradient-start: #faf5ff;
+  --bg-gradient-end: #ede9fe;
+}
+
+:root {
+
+  --white: #ffffff;
+  --card-bg: rgba(255, 255, 255, 0.9);
+
+  --success: #2ec4b6;
+  --warning: #ffb703;
+  --danger: #e63946;
+
+  /* Shadows & Glassmorphism */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 16px rgba(42, 157, 143, 0.08);
+  --shadow-lg: 0 12px 24px rgba(42, 157, 143, 0.12);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.5);
+
+  /* Layout */
+  --bottom-nav-height: 70px;
+}
+
+[data-color-mode="dark"] {
+  --bg-gradient-start: #0b1020;
+  --bg-gradient-end: #111827;
+  --text-main: #e2e8f0;
+  --text-muted: #94a3b8;
+  --white: #111827;
+  --card-bg: rgba(15, 23, 42, 0.88);
+  --glass-border: 1px solid rgba(148, 163, 184, 0.2);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.35);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-main);
+  background: 
+    linear-gradient(var(--bg-gradient-start), var(--bg-gradient-end)),
+    url('https://www.transparenttextures.com/patterns/cubes.png');
+  background-attachment: fixed;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+
+/* Mobile App Layout Wrapper */
+.app-container {
+  width: min(100%, 520px);
+  margin: 0 auto;
+  min-height: 100vh;
+  background-color: transparent;
+  position: relative;
+  overflow-x: hidden;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        width: 100%;
+        box-shadow: none;
+    }
+    body {
+      background-attachment: scroll;
+    }
+}
+
+@media (min-width: 769px) {
+  .app-container {
+    width: min(100%, 1120px);
+    border-left: 1px solid rgba(148, 163, 184, 0.15);
+    border-right: 1px solid rgba(148, 163, 184, 0.15);
+  }
+}
+
+@media (min-width: 1200px) {
+  .content-area {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+/* Typography Utilities */
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.feature-heading {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 0;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-heading-icon {
+  width: 42px;
+  height: 42px;
+  color: var(--primary);
+  stroke-width: 1.9;
+  flex: 0 0 auto;
+}
+
+.feature-heading h2,
+.feature-heading .title,
+.feature-heading .brand-text {
+  margin: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 480px) {
+  .feature-heading { gap: 5px; }
+  .feature-heading-icon { width: 36px; height: 36px; }
+}
+
+p {
+  line-height: 1.5;
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(42, 157, 143, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(42, 157, 143, 0.3);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Glass Card */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: var(--glass-border);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--shadow-md);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Simple animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+[data-color-mode="dark"] .glass-card,
+[data-color-mode="dark"] .stat-card,
+[data-color-mode="dark"] .admin-stat-card,
+[data-color-mode="dark"] .admin-data-section,
+[data-color-mode="dark"] .admin-user,
+[data-color-mode="dark"] .history-card,
+[data-color-mode="dark"] .modal-content {
+  background: rgba(15, 23, 42, 0.9) !important;
+  color: var(--text-main) !important;
+  border-color: rgba(148, 163, 184, 0.2) !important;
+}
+
+[data-color-mode="dark"] .admin-table th,
+[data-color-mode="dark"] .admin-table td,
+[data-color-mode="dark"] .text-muted,
+[data-color-mode="dark"] p {
+  color: var(--text-muted);
+}
+
+[data-color-mode="dark"] h1,
+[data-color-mode="dark"] h2,
+[data-color-mode="dark"] h3,
+[data-color-mode="dark"] h4,
+[data-color-mode="dark"] .font-medium,
+[data-color-mode="dark"] .stat-value {
+  color: var(--text-main) !important;
+}
+
+[data-color-mode="dark"] .btn-secondary {
+  background: #1f2937 !important;
+  color: #e2e8f0 !important;
+  border-color: #334155 !important;
+}
+
+[data-color-mode="dark"] .home-header,
+[data-color-mode="dark"] .checkin-top-brand,
+[data-color-mode="dark"] .progress-top-brand {
+  background: rgba(15, 23, 42, 0.82) !important;
+  border-color: rgba(71, 85, 105, 0.6) !important;
+}

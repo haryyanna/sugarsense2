@@ -1,0 +1,151 @@
+.focusgame-container {
+  min-height: 100vh;
+  padding: 20px;
+  background: radial-gradient(circle at 20% 10%, #e0f2fe 0%, #f8fafc 40%, #eef2ff 100%);
+}
+
+.focusgame-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 40px;
+  margin-bottom: 18px;
+}
+
+.focusgame-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #dbeafe;
+  background: #fff;
+  color: #1e3a8a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.focusgame-stats {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  max-width: calc(100vw - 110px);
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.focusgame-stats div {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #334155;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  padding: 6px 10px;
+}
+
+@media (max-width: 520px) {
+  .focusgame-stats {
+    gap: 6px;
+    max-width: calc(100vw - 82px);
+  }
+
+  .focusgame-stats div {
+    font-size: 11px;
+    padding: 5px 8px;
+  }
+}
+
+.focusgame-board {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid #e2e8f0;
+  border-radius: 24px;
+  padding: 24px 20px;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 14px 28px rgba(15, 23, 42, 0.08);
+}
+
+.focusgame-rule {
+  color: #475569;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.focusgame-word {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  margin-bottom: 18px;
+}
+
+.focusgame-choice-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.focusgame-choice {
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  border-radius: 14px;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.focusgame-choice:active {
+  transform: scale(0.98);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.focusgame-streak {
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f766e;
+}
+
+.focusgame-overlay h2 {
+  font-size: 26px;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+.focusgame-overlay p {
+  color: #64748b;
+  margin-bottom: 14px;
+}
+
+.focusgame-final {
+  font-size: 52px;
+  font-weight: 900;
+  color: #2563eb;
+  margin: 8px 0 18px;
+}
+
+.focusgame-end-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

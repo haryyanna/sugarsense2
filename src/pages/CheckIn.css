@@ -1,0 +1,367 @@
+.checkin-container {
+  padding: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Custom Navigation Tabs */
+.checkin-nav-tabs {
+  display: flex;
+  background: #cbd5e1;
+  padding: 4px;
+  border-radius: 14px;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.tab-btn {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 13.5px;
+  cursor: pointer;
+  background: transparent;
+  color: #475569;
+  transition: all 0.2s;
+}
+
+.tab-btn.active {
+  background: white;
+  color: #0f766e;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.checkin-card, .program-card {
+  padding: 20px;
+}
+
+.checkin-card .title, .program-card .title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #123e42;
+  margin: 0 0 6px 0;
+}
+
+.checkin-card .subtitle, .program-card .subtitle {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+/* Form inputs styling */
+.checkin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slider-label-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.custom-range-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: 100px;
+  background: #e2e8f0;
+  outline: none;
+  transition: background 0.3s;
+}
+
+.custom-range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #10b981;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3);
+  transition: transform 0.1s;
+}
+
+.custom-range-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+}
+
+.range-hints {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* Checkbox design */
+.form-group-checkbox {
+  padding: 8px 0;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: 32px;
+  cursor: pointer;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #334155;
+  user-select: none;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #f1f5f9;
+  border: 2px solid #cbd5e1;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #e2e8f0;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.checkbox-container .checkmark:after {
+  left: 7px;
+  top: 3px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Textarea style */
+textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  padding: 12px;
+  font-family: inherit;
+  font-size: 13.5px;
+  background: #f8fafc;
+  color: #1e293b;
+  resize: none;
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #10b981;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Success Card */
+.saved-success-state {
+  text-align: center;
+  padding: 32px 16px;
+}
+
+.emoji-celebrate {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 16px;
+  animation: pulse 1s infinite alternate;
+}
+
+.saved-success-state h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  color: #15803d;
+}
+
+.saved-success-state p {
+  font-size: 13.5px;
+  color: #475569;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* Alerts */
+.alert-box {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.info-alert {
+  background: #e0f2fe;
+  color: #0369a1;
+  border: 1px solid #bae6fd;
+}
+
+/* Program Guide Styling */
+.program-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.program-day-card {
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: 18px;
+  padding: 16px;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.program-day-card.completed {
+  border-color: #a7f3d0;
+  background: #f0fdf4;
+}
+
+.day-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.day-number {
+  font-size: 11px;
+  font-weight: 800;
+  color: #10b981;
+  background: #ecfdf5;
+  padding: 2px 8px;
+  border-radius: 100px;
+  letter-spacing: 0.5px;
+}
+
+.program-day-card.completed .day-number {
+  background: #10b981;
+  color: white;
+}
+
+.day-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 6px 0;
+}
+
+.day-desc {
+  font-size: 12.5px;
+  color: #475569;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.day-tip-box {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 11.5px;
+  color: #64748b;
+  line-height: 1.4;
+  border-left: 3px solid #10b981;
+}
+
+.program-day-card.completed .day-tip-box {
+  background: white;
+}
+
+/* Day Checkbox Custom Control */
+.program-checkbox-container {
+  display: block;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.program-checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.program-checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: #f1f5f9;
+  border: 2px solid #cbd5e1;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.program-checkbox-container input:checked ~ .program-checkmark {
+  background-color: #10b981;
+  border-color: #10b981;
+}
+
+.program-checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.program-checkbox-container input:checked ~ .program-checkmark:after {
+  display: block;
+}
+
+.program-checkbox-container .program-checkmark:after {
+  left: 8px;
+  top: 4px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}

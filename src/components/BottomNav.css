@@ -1,0 +1,116 @@
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-width: 480px;
+    /* match app-container */
+    left: 50%;
+    transform: translateX(-50%);
+    height: var(--bottom-nav-height);
+    background: var(--white);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05);
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    z-index: 1000;
+    padding: 6px 8px max(6px, env(safe-area-inset-bottom));
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 11px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    flex: 1;
+    padding: 4px 2px 2px;
+    min-width: 0;
+    gap: 2px;
+}
+
+.nav-item:hover {
+    color: var(--primary);
+}
+
+.nav-item.active {
+    color: var(--primary);
+}
+
+.nav-item span {
+    margin-top: 2px;
+    line-height: 1.1;
+    text-align: center;
+    white-space: nowrap;
+    font-size: 11px;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.nav-item.active .icon-container:not(.center-icon) {
+    background-color: var(--primary-surface);
+    color: var(--primary-dark);
+}
+
+.nav-item.active span {
+    font-weight: 600;
+}
+
+/* Center Check-in Icon - Prominent */
+.center-icon {
+    background-color: var(--primary);
+    width: 48px;
+    height: 48px;
+    border-radius: 16px;
+    transform: translateY(-8px);
+    box-shadow: 0 4px 12px rgba(42, 157, 143, 0.3);
+    margin-bottom: -8px;
+}
+
+.nav-item.active .center-icon {
+    background-color: var(--primary-dark);
+    box-shadow: 0 6px 16px rgba(42, 157, 143, 0.4);
+    transform: translateY(-10px);
+}
+
+.nav-item svg {
+    width: 23px;
+    height: 23px;
+    stroke-width: 2.1;
+}
+
+@media (min-width: 769px) {
+    .bottom-nav {
+        max-width: 620px;
+        height: 78px;
+        padding: 7px 14px;
+    }
+
+    .nav-item span { font-size: 12px; }
+    .nav-item svg { width: 24px; height: 24px; }
+}
+
+@media (max-width: 380px) {
+    .bottom-nav { padding-left: 3px; padding-right: 3px; }
+    .nav-item span { font-size: 10px; }
+    .nav-item svg { width: 21px; height: 21px; }
+    .icon-container { width: 34px; height: 34px; }
+}
+
+.chat-nav-item {
+    justify-content: center;
+}
