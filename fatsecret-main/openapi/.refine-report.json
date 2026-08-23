@@ -1,0 +1,28 @@
+{
+  "provider": "fatsecret",
+  "sources": [
+    "fatsecret-exercise-diary-api-openapi.yml",
+    "fatsecret-food-diary-api-openapi.yml",
+    "fatsecret-foods-api-openapi.yml",
+    "fatsecret-profile-foods-api-openapi.yml",
+    "fatsecret-profile-meals-api-openapi.yml",
+    "fatsecret-recipes-api-openapi.yml",
+    "fatsecret-reference-api-openapi.yml",
+    "fatsecret-weight-tracking-api-openapi.yml"
+  ],
+  "outputs": [
+    "fatsecret-exercise-diary-api-openapi.yml",
+    "fatsecret-food-diary-api-openapi.yml",
+    "fatsecret-foods-api-openapi.yml",
+    "fatsecret-profile-foods-api-openapi.yml",
+    "fatsecret-profile-meals-api-openapi.yml",
+    "fatsecret-recipes-api-openapi.yml",
+    "fatsecret-reference-api-openapi.yml",
+    "fatsecret-weight-tracking-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

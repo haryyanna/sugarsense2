@@ -1,0 +1,36 @@
+generated: '2026-08-12'
+method: generated
+source: >-
+  openapi/*.yml (every operationId below was verified verbatim in the referenced spec) plus
+  conventions/fatsecret-conventions.yml and errors/fatsecret-error-codes.yml
+note: >-
+  fatsecret publishes no AGENTS.md and no skill files of its own; these are API Evangelist packaged
+  operating instructions grounded in the catalogued OpenAPI and the provider's own guides.
+skills:
+  - file: fatsecret-look-up-nutrition.md
+    name: Look up verified nutrition for a food
+    api: openapi/fatsecret-foods-api-openapi.yml
+    operations: [searchFoods, autocompleteFoods, findFoodByBarcode, getFood]
+  - file: fatsecret-log-a-meal.md
+    name: Log a meal to a member's food diary
+    api: openapi/fatsecret-food-diary-api-openapi.yml
+    operations: [searchFoods, getFood, createFoodEntry, getFoodEntries, getFoodEntriesMonth]
+  - file: fatsecret-track-weight-and-exercise.md
+    name: Track a member's weight and exercise
+    api: openapi/fatsecret-weight-tracking-api-openapi.yml
+    operations: [getWeights, updateWeight, listExercises, getExerciseEntries, commitExerciseEntries]
+  - file: fatsecret-recipes-and-saved-meals.md
+    name: Find recipes and build saved meals
+    api: openapi/fatsecret-recipes-api-openapi.yml
+    operations:
+      - searchRecipes
+      - getRecipe
+      - listRecipeTypes
+      - listFoodBrands
+      - listFoodCategories
+      - listFoodSubCategories
+      - getFavoriteFoods
+      - addFavoriteFood
+      - deleteFavoriteFood
+      - listSavedMeals
+      - createSavedMeal

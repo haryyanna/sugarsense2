@@ -1,0 +1,14 @@
+{
+  "repo": "fatsecret",
+  "feeds": [
+    {
+      "source": "https://blog.fatsecret.com/rss",
+      "feed_url": "https://blog.fatsecret.com/rss",
+      "title": "",
+      "saved": 0,
+      "method": "feed"
+    }
+  ],
+  "fetched": "2026-08-15T12:22:01Z",
+  "post_count": 26
+}
