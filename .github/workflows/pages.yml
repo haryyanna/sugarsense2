@@ -25,13 +25,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
 
       - name: Install dependencies
         run: npm install
 
-      - name: Build Vite app
+      - name: Build Vite app for GitHub Pages
         run: npm run build
+        env:
+          GITHUB_ACTIONS: 'true'
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
