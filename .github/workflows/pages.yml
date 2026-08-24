@@ -18,6 +18,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Required when the VITE_* values were created under
+    # Settings -> Environments -> github-pages.
+    environment:
+      name: github-pages
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,26 +31,39 @@ jobs:
         with:
           node-version: 20
 
-      # The repository intentionally has no lockfile, so do not enable
-      # setup-node's npm cache (it requires package-lock.json/yarn.lock/etc.).
       - name: Install dependencies
         run: npm install --no-audit --no-fund --no-package-lock
 
-      - name: Build Vite application
-        run: npm run build
+      - name: Verify Supabase configuration
         env:
-            CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY }}
-            GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-            FATSECRET_CLIENT_ID: ${{ secrets.FATSECRET_CLIENT_ID }}
-            FATSECRET_CLIENT_SECRET: ${{ secrets.FATSECRET_CLIENT_SECRET }}
-            VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
-            VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
+          SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || vars.VITE_SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY || vars.VITE_SUPABASE_ANON_KEY }}
+        run: |
+          if [ -z "$SUPABASE_URL" ]; then
+            echo "ERROR: VITE_SUPABASE_URL is missing from repository/environment Secrets or Variables."
+            exit 1
+          fi
+          if [ -z "$SUPABASE_ANON_KEY" ]; then
+            echo "ERROR: VITE_SUPABASE_ANON_KEY is missing from repository/environment Secrets or Variables."
+            exit 1
+          fi
+          echo "Supabase environment variables are available to the build."
+
+      - name: Build Vite application
+        env:
+          CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY || vars.CEREBRAS_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || vars.GEMINI_API_KEY }}
+          FATSECRET_CLIENT_ID: ${{ secrets.FATSECRET_CLIENT_ID || vars.FATSECRET_CLIENT_ID }}
+          FATSECRET_CLIENT_SECRET: ${{ secrets.FATSECRET_CLIENT_SECRET || vars.FATSECRET_CLIENT_SECRET }}
+          VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || vars.VITE_SUPABASE_URL }}
+          VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY || vars.VITE_SUPABASE_ANON_KEY }}
+        run: npm run build
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./dist
 
