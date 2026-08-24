@@ -18,8 +18,6 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # Required when the VITE_* values were created under
-    # Settings -> Environments -> github-pages.
     environment:
       name: github-pages
     steps:
@@ -34,25 +32,31 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund --no-package-lock
 
-      - name: Verify Supabase configuration
+      - name: Verify required configuration
         env:
           SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || vars.VITE_SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY || vars.VITE_SUPABASE_ANON_KEY }}
+          GEMINI_KEY: ${{ secrets.GEMINI_API_KEY || vars.GEMINI_API_KEY }}
         run: |
           if [ -z "$SUPABASE_URL" ]; then
-            echo "ERROR: VITE_SUPABASE_URL is missing from repository/environment Secrets or Variables."
+            echo "ERROR: VITE_SUPABASE_URL is missing."
             exit 1
           fi
           if [ -z "$SUPABASE_ANON_KEY" ]; then
-            echo "ERROR: VITE_SUPABASE_ANON_KEY is missing from repository/environment Secrets or Variables."
+            echo "ERROR: VITE_SUPABASE_ANON_KEY is missing."
             exit 1
           fi
-          echo "Supabase environment variables are available to the build."
+          if [ -z "$GEMINI_KEY" ]; then
+            echo "ERROR: GEMINI_API_KEY is missing. SugarScan requires it on GitHub Pages."
+            exit 1
+          fi
+          echo "Required configuration is available."
 
       - name: Build Vite application
         env:
           CEREBRAS_API_KEY: ${{ secrets.CEREBRAS_API_KEY || vars.CEREBRAS_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || vars.GEMINI_API_KEY }}
+          VITE_GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || vars.GEMINI_API_KEY }}
           FATSECRET_CLIENT_ID: ${{ secrets.FATSECRET_CLIENT_ID || vars.FATSECRET_CLIENT_ID }}
           FATSECRET_CLIENT_SECRET: ${{ secrets.FATSECRET_CLIENT_SECRET || vars.FATSECRET_CLIENT_SECRET }}
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL || vars.VITE_SUPABASE_URL }}
